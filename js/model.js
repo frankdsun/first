@@ -1,6 +1,9 @@
-// Todo.Todoitems = DS.model.extend();
+Todo.Tododata = DS.Model.extend({
+	desc: DS.attr("string"),
+	isCompleted: DS.attr("boolean")
+});
 
-Todo.Todoitems.FIXTURES = [
+Todo.Tododata.FIXTURES = [
 	
 	{
 		id: 1,
@@ -18,6 +21,12 @@ Todo.Todoitems.FIXTURES = [
 		id: 3,
 		desc: "hello world!!!",
 		isCompleted: true
+	},
+
+	{
+		id: 4,
+		desc: "hello world!!!!",
+		isCompleted: false
 	}
 
 ];

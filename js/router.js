@@ -4,9 +4,18 @@ Todo.Router.map(function (){
 
 Todo.TodolistRoute = Ember.Route.extend({
 
-	// model: function(){
-	// 	return this.store.find("todoitems");
-	// }
+	model: function(){
+		this.store.push('tododata', {
+	      id: 10,
+	      desc: "Fewer Moving Parts",
+	      isCompleted: false
+	    });
+		return this.store.find('tododata');
+	},
+
+	setupController: function(controller, tododata){
+		controller.set('model', tododata);
+	}
 
 });
 

@@ -9,10 +9,11 @@
     <script type="text/javascript" src="js/libs/ember.js"></script>
     <script type="text/javascript" src="js/libs/ember-data.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    
-    <script type="text/javascript" src="js/model.js"></script>
-
+    <script type="text/javascript" src="js/controller.js"></script>
     <script type="text/javascript" src="js/router.js"></script>
+    <script type="text/javascript" src="js/model.js"></script>
+    <script type="text/javascript" src="js/view.js"></script>
+    
   </head>
   <body>
   <script type="text/x-handlebars" data-template-name="todolist"> 
@@ -24,14 +25,13 @@
 
       <section id="main">
         <ul id="todo-list">
-        
-          <li>
-            <input type="checkbox" class="toggle">
-            <label>{{desc}}</label><button class="destroy"></button>
+        {{#each}}
+          <li {{bind-attr class="isCompleted:completed"}}>
+            {{input type="checkbox" checked=isCompleted class="toggle"}}
+            <label>{{desc}}</label><button {{action 'deleteRecord'}} class="destroy"></button>
           </li>
-     
+        {{/each}}
         </ul>
-
         <input type="checkbox" id="toggle-all">
       </section>
 
