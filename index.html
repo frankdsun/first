@@ -25,10 +25,15 @@
 
       <section id="main">
         <ul id="todo-list">
-        {{#each}}
-          <li {{bind-attr class="isCompleted:completed"}}>
+        {{#each itemController="tododata"}}
+          <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
             {{input type="checkbox" checked=isCompleted class="toggle"}}
-            <label>{{desc}}</label><button {{action 'deleteRecord'}} class="destroy"></button>
+            {{#if isEditing}}
+              {{input type='text' class='edit' value=desc}}
+            {{else}}
+              <label {{action 'editItem' on='doubleClick'}}>{{desc}}</label>
+            {{/if}}
+            <button {{action 'deleteItem'}} class="destroy"></button>
           </li>
         {{/each}}
         </ul>

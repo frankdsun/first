@@ -18,9 +18,3 @@ Todo.TodolistRoute = Ember.Route.extend({
 	}
 
 });
-
-// Todo.indexRoute = Ember.Route.extend({
-
-
-
-// });
