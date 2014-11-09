@@ -11,6 +11,7 @@ Todo.TodolistRoute = Ember.Route.extend({
 	      isCompleted: false
 	    });
 		return this.store.find('tododata');
+
 	},
 
 	setupController: function(controller, tododata){

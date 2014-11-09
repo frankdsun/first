@@ -8,4 +8,4 @@ window.Todo = Ember.Application.create({
   LOG_TRANSITIONS_INTERNAL: true
 });
 
-Todo.ApplicationAdapter = DS.FixtureAdapter.extend();
+Todo.ApplicationAdapter = DS.LSAdapter.extend();

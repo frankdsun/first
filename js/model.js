@@ -3,32 +3,33 @@ Todo.Tododata = DS.Model.extend({
 	isCompleted: DS.attr("boolean")
 });
 
-Todo.Tododata.FIXTURES = [
+// Todo.Tododata.FIXTURES = [
 	
-	{
-		id: 1,
-		desc: "hello world!",
-		isCompleted: false
-	},
+// 	{
+// 		id: 1,
+// 		desc: "hello world!",
+// 		isCompleted: false
+// 	},
 
-	{
-		id: 2,
-		desc: "hello world!!",
-		isCompleted: false
-	},
+// 	{
+// 		id: 2,
+// 		desc: "hello world!!",
+// 		isCompleted: false
+// 	},
 
-	{
-		id: 3,
-		desc: "hello world!!!",
-		isCompleted: true
-	},
+// 	{
+// 		id: 3,
+// 		desc: "hello world!!!",
+// 		isCompleted: true
+// 	},
 
-	{
-		id: 4,
-		desc: "hello world!!!!",
-		isCompleted: false
-	}
+// 	{
+// 		id: 4,
+// 		desc: "hello world!!!!",
+// 		isCompleted: false
+// 	}
 
-];
+// ];
 
 
+//Todo.Tododata = this.ajax('/js/todoitems.json', 'get');
