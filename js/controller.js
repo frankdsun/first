@@ -23,6 +23,17 @@ Todo.TododataController = Ember.ObjectController.extend({
 
 		editItem: function(){
 			this.set('isEditing', true);
+		},
+
+		saveItem: function(){
+			var item = this.get('model');
+			if(Ember.isEmpty(item.desc)){
+				this.send('deleteItem');
+			}
+			else {
+				item.save();
+			}
+			this.set('isEditing', false);
 		}
 	}
 

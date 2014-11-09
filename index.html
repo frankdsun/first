@@ -29,7 +29,7 @@
           <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
             {{input type="checkbox" checked=isCompleted class="toggle"}}
             {{#if isEditing}}
-              {{input type='text' class='edit' value=desc}}
+              {{edit-item type='text' class='edit' focus-out='saveItem' insert-newline='saveItem' value=desc}}
             {{else}}
               <label {{action 'editItem' on='doubleClick'}}>{{desc}}</label>
             {{/if}}
