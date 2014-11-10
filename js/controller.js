@@ -40,5 +40,17 @@ Todo.TododataController = Ember.ObjectController.extend({
 });
 
 Todo.TodolistController = Ember.ArrayController.extend({
-	
+	actions: {
+		createItem: function(){
+			var desc = this.get('newDesc');
+			if(!desc) {return false;}
+			if(!desc.trim()) {return;}
+			var item = this.store.createRecord('tododata', {
+				desc: desc.trim(),
+				isCompleted: false
+			});
+			this.set('newDesc', '');
+			item.save();
+		}
+	}
 });

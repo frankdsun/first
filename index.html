@@ -5,6 +5,7 @@
     <title>Ember.js • TodoMVC</title>
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/libs/handlebars-1.1.2.js"></script>
     <script type="text/javascript" src="js/libs/ember.js"></script>
     <script type="text/javascript" src="js/libs/ember-data.js"></script>
@@ -14,14 +15,13 @@
     <script type="text/javascript" src="js/router.js"></script>
     <script type="text/javascript" src="js/model.js"></script>
     <script type="text/javascript" src="js/view.js"></script>
-    
   </head>
   <body>
   <script type="text/x-handlebars" data-template-name="todolist"> 
     <section id="todoapp">
       <header id="header">
         <h1>todos</h1>
-        <input type="text" id="new-todo" placeholder="What needs to be done?" />
+        {{input type="text" id="new-todo" placeholder="What needs to be done?" value=newDesc action="createItem"}}
       </header>
 
       <section id="main">
@@ -68,3 +68,4 @@
   </script>
   </body>
 </html>
+
