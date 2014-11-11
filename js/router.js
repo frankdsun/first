@@ -1,5 +1,8 @@
 Todo.Router.map(function (){
-	this.resource("todolist", {path: "/"});
+	this.resource("todolist", {path: "/"}, function(){
+		this.route("active", {path: "/active"});
+		this.route("completed");
+	});
 });
 
 Todo.TodolistRoute = Ember.Route.extend({
@@ -18,3 +21,30 @@ Todo.TodolistRoute = Ember.Route.extend({
 	}
 
 });
+
+Todo.TodolistIndexRoute = Ember.Route.extend({
+	model: function(){
+		return this.modelFor('todolist');
+	}
+});
+Todo.TodolistActiveRoute = Ember.Route.extend({
+	model: function(){
+		return this.store.filter('tododata', function(tododata){
+			return !tododata.get('isCompleted');
+		})
+	},
+	renderTemplate: function(controller){
+		this.render('todolist/index', {controller: controller})
+	}
+});
+Todo.TodolistCompletedRoute = Ember.Route.extend({
+	model: function(){
+		return this.store.filter('tododata', function(tododata){
+			return tododata.get('desc');
+		})
+	},
+	renderTemplate: function(controller){
+		this.render('todolist/index', {controller: controller})
+	}
+});
+

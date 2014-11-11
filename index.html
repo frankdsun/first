@@ -17,6 +17,21 @@
     <script type="text/javascript" src="js/view.js"></script>
   </head>
   <body>
+  <script type="text/x-handlebars" data-template-name="todolist/index">
+    <ul id="todo-list">
+      {{#each itemController="tododata"}}
+        <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
+          {{input type="checkbox" checked=isCompleted class="toggle"}}
+          {{#if isEditing}}
+            {{edit-item type='text' class='edit' focus-out='saveItem' insert-newline='saveItem' value=desc}}
+          {{else}}
+            <label {{action 'editItem' on='doubleClick'}}>{{desc}}</label>
+          {{/if}}
+          <button {{action 'deleteItem'}} class="destroy"></button>
+        </li>
+      {{/each}}
+    </ul>
+  </script>
   <script type="text/x-handlebars" data-template-name="todolist"> 
     <section id="todoapp">
       <header id="header">
@@ -25,19 +40,7 @@
       </header>
 
       <section id="main">
-        <ul id="todo-list">
-        {{#each itemController="tododata"}}
-          <li {{bind-attr class="isCompleted:completed isEditing:editing"}}>
-            {{input type="checkbox" checked=isCompleted class="toggle"}}
-            {{#if isEditing}}
-              {{edit-item type='text' class='edit' focus-out='saveItem' insert-newline='saveItem' value=desc}}
-            {{else}}
-              <label {{action 'editItem' on='doubleClick'}}>{{desc}}</label>
-            {{/if}}
-            <button {{action 'deleteItem'}} class="destroy"></button>
-          </li>
-        {{/each}}
-        </ul>
+        {{outlet}}
         <input type="checkbox" id="toggle-all">
       </section>
 
@@ -47,13 +50,13 @@
         </span>
         <ul id="filters">
           <li>
-            <a href="all" class="selected">All</a>
+            {{#link-to "todolist.index" activeClass="selected"}}all{{/link-to}}
           </li>
           <li>
-            <a href="active">Active</a>
+            {{#link-to "todolist.active" activeClass="selected"}}Active{{/link-to}}
           </li>
           <li>
-            <a href="completed">Completed</a>
+            {{#link-to "todolist.completed" activeClass="selected"}}Completed{{/link-to}}
           </li>
         </ul>
 
