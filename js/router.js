@@ -40,7 +40,7 @@ Todo.TodolistActiveRoute = Ember.Route.extend({
 Todo.TodolistCompletedRoute = Ember.Route.extend({
 	model: function(){
 		return this.store.filter('tododata', function(tododata){
-			return tododata.get('desc');
+			return tododata.get('isCompleted');
 		})
 	},
 	renderTemplate: function(controller){
