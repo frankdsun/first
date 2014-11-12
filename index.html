@@ -41,12 +41,12 @@
 
       <section id="main">
         {{outlet}}
-        <input type="checkbox" id="toggle-all">
+        {{input type="checkbox" id="toggle-all" checked=toggleAll}}
       </section>
 
       <footer id="footer">
         <span id="todo-count">
-          <strong>2</strong> todos left
+          <strong>{{remaining}}</strong> {{todos}} left
         </span>
         <ul id="filters">
           <li>
@@ -59,10 +59,11 @@
             {{#link-to "todolist.completed" activeClass="selected"}}Completed{{/link-to}}
           </li>
         </ul>
-
-        <button id="clear-completed">
-          Clear completed (1)
+        {{#if hasCompleted}}
+        <button id="clear-completed" {{action 'clearCompleted'}}>
+          Clear completed ({{completed}})
         </button>
+        {{/if}}
       </footer>
     </section>
     <footer id="info">
